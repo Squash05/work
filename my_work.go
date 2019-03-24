@@ -56,5 +56,5 @@ func main() {
 	fmt.Printf("latest versions of kubernetes/kubernetes: %s", versionSlice)
 	fmt.Printf("latest versions of kubernetes/kubernetes: [%s]", console.log( releases.sort(cmp).join(' ')));
 }
-}
+
 
