@@ -46,9 +46,9 @@ func main() {
 	}
 	
 	newFile,  _, err := ioutil.ReadFile(ctx, os.Args[1], opt)
-    if err != nil {
-        fmt.Println("Can't read file:", os.Args[1])
-        log.Fatal(err)
+	    if err != nil {
+		fmt.Println("Can't read file:", os.Args[1])
+		log.Fatal(err)
 	}
 	releases, _, err := client.repositories.ListReleases(ctx, "Kubernetes", "Kubernetes", opt)
 	if err != nil {
