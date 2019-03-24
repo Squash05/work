@@ -10,11 +10,17 @@ import (
 	"github.com/google/go-github/github"
 	"log"
 	"sort"
+	"bufio"
 )
+func check(e error) {
+    if e != nil {
+        panic(e)
+    }
+}
 // ReadFile takes the path to a file and assigns the content to releases
 func ReadFile(filename string) ([]byte, error){
-	var newFile = (os.Args[0])
 	var cmp = require('semver-compare');
+	
 }
 
 // LatestVersions returns a sorted slice with the highest version as its first element and the highest version of the smaller minor versions in a descending order
@@ -50,6 +56,14 @@ func main() {
 		fmt.Println("Can't read file:", os.Args[1])
 		log.Fatal(err)
 	}
+	f, err := os.Open(os.Args[1])
+    		check(err)
+	b1 := make([]byte, 5)
+	b1 := make([]byte, 5)
+        n1, err := f.Read(b1)
+           	check(err)
+	f.Close()
+	
 	releases, _, err := client.repositories.ListReleases(ctx, "Kubernetes", "Kubernetes", opt)
 	if err != nil {
 		log.Fatal(err)
@@ -57,7 +71,7 @@ func main() {
 
 
 	fmt.Printf("latest versions of kubernetes/kubernetes: %s", versionSlice)
-	fmt.Printf("latest versions of %s: [%s]", newFile , console.log(os.Args[1].sort(cmp).join(' ')));
+	fmt.Printf("latest versions of %s: [%s]", newFile , console.log(newFile.sort(cmp).join(' ')));
 }
 
 
